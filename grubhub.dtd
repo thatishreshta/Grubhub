@@ -1,0 +1,66 @@
+<!ELEMENT decisionData (restaurants, payments, logistics, order)>
+
+<!-- Restaurants and Menus -->
+<!ELEMENT restaurants (restaurant+)>
+<!ELEMENT restaurant (name, cuisine, prepTimeAvg, menu)>
+<!ATTLIST restaurant
+    rid ID #REQUIRED
+    status (open|closed) #REQUIRED
+    kitchenCapacity CDATA #IMPLIED
+>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT cuisine (#PCDATA)>
+<!ELEMENT prepTimeAvg (#PCDATA)>
+<!ELEMENT menu (item+)>
+
+<!ELEMENT item (title, price)>
+<!ATTLIST item
+    iid ID #REQUIRED
+    available (yes|no) #REQUIRED
+    estPrepMin CDATA #IMPLIED
+>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+
+<!-- Payments -->
+<!ELEMENT payments (payment+)>
+<!ELEMENT payment (method)>
+<!ATTLIST payment
+    pid ID #REQUIRED
+    status (authorized|captured|failed) #REQUIRED
+>
+<!ELEMENT method (#PCDATA)>
+
+<!-- Logistics -->
+<!ELEMENT logistics (drivers, traffic)>
+<!ELEMENT drivers EMPTY>
+<!ATTLIST drivers
+    available CDATA #REQUIRED
+>
+<!ELEMENT traffic EMPTY>
+<!ATTLIST traffic
+    condition (free|moderate|heavy) #REQUIRED
+    updated CDATA #REQUIRED
+    distanceKm CDATA #IMPLIED
+>
+
+<!-- Order referencing restaurant & items -->
+<!ELEMENT order (customer, location, orderItems)>
+<!ATTLIST order
+    oid ID #REQUIRED
+    restaurant IDREF #REQUIRED
+    payment IDREF #REQUIRED
+>
+<!ELEMENT customer (pseudoId)>
+<!ELEMENT pseudoId (#PCDATA)>
+<!ELEMENT location (lat, lon)>
+<!ELEMENT lat (#PCDATA)>
+<!ELEMENT lon (#PCDATA)>
+
+<!ELEMENT orderItems (itemRef+)>
+<!ELEMENT itemRef EMPTY>
+<!ATTLIST itemRef
+    ref IDREF #REQUIRED
+    quantity CDATA #REQUIRED
+>
