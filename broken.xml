@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE decisionData SYSTEM "grubhub.dtd">
+
+<decisionData>
+  <restaurants>
+    <restaurant rid="r101" status="busy" kitchenCapacity="low">
+      <name>Spicy chicken</name>
+      <cuisine>Chinese</cuisine>
+      <prepTimeAvg>18</prepTimeAvg>
+      <menu>
+        <item iid="i1001" available="yes" estPrepMin="15">
+          <title>Kung Pao Chicken</title>
+          <price>15</price>
+        </item>
+      </menu>
+    </restaurant>
+  </restaurants>
+
+  <payments>
+    <payment pid="p5001" status="authorized">
+      <method>Visa</method>
+    </payment>
+  </payments>
+
+  <logistics>
+    <drivers available="0"/>
+    <traffic condition="jammed" updated="2025-08-25T21:14:00Z"/>
+  </logistics>
+
+  <order oid="o9002" restaurant="r101" payment="p9999">
+    <customer>
+      <pseudoId>cust_zz99</pseudoId>
+    </customer>
+    <location>
+      <lat>36.7378</lat>
+      <lon>-119.7871</lon>
+    </location>
+    <orderItems>
+      <itemRef ref="i9999" quantity="1"/>
+    </orderItems>
+  </order>
+</decisionData>
