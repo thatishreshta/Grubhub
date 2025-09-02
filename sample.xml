@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE decisionData SYSTEM "grubhub.dtd">
+<decisionData>
+  <restaurants>
+    <restaurant rid="r101" status="open" kitchenCapacity="high">
+      <name>Spicy chicken</name>
+      <cuisine>Chinese</cuisine>
+      <prepTimeAvg>18</prepTimeAvg>
+      <menu>
+        <item iid="i1001" available="yes" estPrepMin="15">
+          <title>Kung Pao Chicken</title>
+          <price>15</price>
+        </item>
+        <item iid="i1002" available="no" estPrepMin="25">
+          <title>Noodles</title>
+          <price>12</price>
+        </item>
+      </menu>
+    </restaurant>
+    <restaurant rid="r202" status="open" kitchenCapacity="medium">
+      <name>Villa Napoli</name>
+      <cuisine>Italian</cuisine>
+      <prepTimeAvg>22</prepTimeAvg>
+      <menu>
+        <item iid="i2001" available="yes" estPrepMin="20">
+          <title>Margherita Pizza</title>
+          <price>15.00</price>
+        </item>
+        <item iid="i2002" available="yes" estPrepMin="10">
+          <title>Garlic Knots</title>
+          <price>6.00</price>
+        </item>
+      </menu>
+    </restaurant>
+  </restaurants>
+
+  <payments>
+    <payment pid="p5001" status="authorized">
+      <method>Visa</method>
+    </payment>
+    <payment pid="p5002" status="failed">
+      <method>Mastercard</method>
+    </payment>
+  </payments>
+
+  <logistics>
+    <drivers available="12"/>
+    <traffic condition="moderate" updated="2025-08-25T21:14:00Z" distanceKm="5.2"/>
+  </logistics>
+
+  <order oid="o9001" restaurant="r202" payment="p5001">
+    <customer>
+      <pseudoId>cust_7f23</pseudoId>
+    </customer>
+    <location>
+      <lat>36.7378</lat>
+      <lon>-119.7871</lon>
+    </location>
+    <orderItems>
+      <itemRef ref="i2001" quantity="1"/>
+      <itemRef ref="i2002" quantity="2"/>
+    </orderItems>
+  </order>
+</decisionData>
